@@ -8,8 +8,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    private EditText txtnumber;
-    private TextView txtresult;
+    private EditText txtNumber;
+    private TextView txtResult;
     private Button btnConvert;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,27 +19,28 @@ public class MainActivity extends AppCompatActivity {
         setAction();
     }
     private void initiate(){
-        txtnumber=findViewById(R.id.txtInput);
-        txtresult=findViewById(R.id.txtOutput);
+        txtNumber=findViewById(R.id.etInput);
+        txtResult=findViewById(R.id.tvOutput);
         btnConvert=findViewById(R.id.btnConvert);
     }
     private void setAction(){
         btnConvert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int input = Integer.parseInt(txtnumber.getText().toString());
+                int input = Integer.parseInt(txtNumber.getText().toString());
                 Model model = new Model();
-                if (input < 20) {
 
-                    txtresult.setText(model.getOnes()[input]);
+                if (input < 20) {
+                    txtResult.setText(model.getOnes()[input]);
                 } else if (input < 100) {
                     int tensIndex = input / 10;
                     int onesIndex = input % 10;
 
                     if (onesIndex != 0) {
-                        txtresult.setText(model.getTens()[tensIndex] + " " + model.getOnes()[onesIndex]);
+                        txtResult.setText(model.getTens()[tensIndex] + " " +
+                                model.getOnes()[onesIndex]);
                     } else {
-                        txtresult.setText(model.getTens()[tensIndex]);
+                        txtResult.setText(model.getTens()[tensIndex]);
                     }
                 } else {
                     int hundredsIndex = input / 100;
@@ -48,9 +49,11 @@ public class MainActivity extends AppCompatActivity {
                     int onesIndex = remainder % 10;
 
                     if (onesIndex != 0) {
-                        txtresult.setText(model.getOnes()[hundredsIndex] + " Hundred " + model.getTens()[tensIndex] + " " + model.getOnes()[onesIndex]);
+                        txtResult.setText(model.getOnes()[hundredsIndex] + " Hundred " +
+                                model.getTens()[tensIndex] + " " + model.getOnes()[onesIndex]);
                     } else {
-                        txtresult.setText(model.getOnes()[hundredsIndex] + " Hundred " + model.getTens()[tensIndex]);
+                        txtResult.setText(model.getOnes()[hundredsIndex] + " Hundred " +
+                                model.getTens()[tensIndex]);
                     }
                 }
             }});

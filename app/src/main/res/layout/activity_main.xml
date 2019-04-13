@@ -5,21 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:orientation="vertical">
-
+    android:orientation="vertical"
+    >
 
     <EditText
-        android:id="@+id/txtInput"
+        android:id="@+id/etInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter any whole number below 1000"
-        android:textSize="25sp"
+        android:layout_marginTop="50dp"
         android:inputType="number"
         android:gravity="center"
-        android:layout_marginTop="30dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginBottom="10dp"
+        android:textSize="22sp"
         android:maxLength="3"
         />
 
@@ -30,17 +27,17 @@
         android:layout_gravity="center"
         android:text="Convert into Word"
         android:textSize="25sp"
+        android:layout_marginTop="30dp"
         android:textAllCaps="false"
-        android:layout_marginTop="20dp"/>
+        android:padding="20dp"/>
 
     <TextView
-        android:id="@+id/txtOutput"
+        android:id="@+id/tvOutput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="25sp"
         android:gravity="center"
+        android:layout_gravity="center"
         android:layout_marginTop="30dp"
         />
-
-
 </LinearLayout>
